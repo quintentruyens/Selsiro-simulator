@@ -1,2 +1,2 @@
 # ByteRV-simulator
-A simulation of a RISC-V computer in Digital. Part of the ByteRV project.
+This is a simulation of a RISC-V computer in [Digital](https://github.com/hneemann/Digital). Part of the ByteRV project.

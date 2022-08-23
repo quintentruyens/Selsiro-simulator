@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes/>
+  <visualElements>
+    <visualElement>
+      <elementName>Processor.dig</elementName>
+      <elementAttributes/>
+      <pos x="620" y="440"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Memory.dig</elementName>
+      <elementAttributes/>
+      <pos x="780" y="400"/>
+    </visualElement>
+  </visualElements>
+  <wires/>
+  <measurementOrdering/>
+</circuit>

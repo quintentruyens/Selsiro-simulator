@@ -1,0 +1,1231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>shapeType</string>
+      <shapeType>LAYOUT</shapeType>
+    </entry>
+    <entry>
+      <string>settingsMaxStepCount</string>
+      <int>5000</int>
+    </entry>
+    <entry>
+      <string>oscillationDetectionCounter</string>
+      <int>5000</int>
+    </entry>
+    <entry>
+      <string>Height</string>
+      <int>8</int>
+    </entry>
+    <entry>
+      <string>Width</string>
+      <int>8</int>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>PC</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="680" y="480"/>
+    </visualElement>
+    <visualElement>
+      <elementName>RAMDualAccess</elementName>
+      <elementAttributes>
+        <entry>
+          <string>AddrBits</string>
+          <int>24</int>
+        </entry>
+        <entry>
+          <string>isProgramMemory</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1140" y="260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>D_in</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="680" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Addr</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="680" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>C</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1060" y="620"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>str</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1100" y="620"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Instr</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1240" y="300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>D_out</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1240" y="260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Write one cell</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>C str ld Addr D_in PC D_out Instr SAM LAM SAF LAF IAF
+
+declare SAM = (Except &gt;&gt; 6) &amp; 1;
+declare LAM = (Except &gt;&gt; 4) &amp; 1;
+declare SAF = (Except &gt;&gt; 7) &amp; 1;
+declare LAF = (Except &gt;&gt; 5) &amp; 1;
+declare IAF = (Except &gt;&gt; 1) &amp; 1;
+
+0 0   0  0    0    0  z     0     0   0   0   0   0
+0 0   1  0    0    0  0     0     0   0   0   0   0
+0 0   1  4    0    0  0     0     0   0   0   0   0
+0 0   1  0    0    4  0     0     0   0   0   0   0
+C 0   1  0    5    4  0     0     0   0   0   0   0
+0 1   1  0    5    4  0     0     0   0   0   0   0
+C 1   1  0    5    4  5     0     0   0   0   0   0
+0 0   1  4    0    0  0     5     0   0   0   0   0
+C 1   1  0    0    0  0     0     0   0   0   0   0</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="420" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>splitterSpreading</string>
+          <int>2</int>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>32</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>0-0,1-1,26-31,2-25</string>
+        </entry>
+      </elementAttributes>
+      <pos x="700" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Write full RAM</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>	C str ld Addr      D_in    PC        D_out   Instr   SAM LAM SAF LAF IAF
+
+declare SAM = (Except &gt;&gt; 6) &amp; 1;
+declare LAM = (Except &gt;&gt; 4) &amp; 1;
+declare SAF = (Except &gt;&gt; 7) &amp; 1;
+declare LAF = (Except &gt;&gt; 5) &amp; 1;
+declare IAF = (Except &gt;&gt; 1) &amp; 1;
+
+# Write some of the RAM
+loop(a, 1&lt;&lt;16)
+	0 0   1  (a &lt;&lt; 10) (a + 5) 4         0       0       0   0   0   0   0
+	C 1   1  (a &lt;&lt; 10) (a + 5) 4         (a + 5) 0       0   0   0   0   0
+end loop
+
+# Read the data through Addr
+loop(a, 1&lt;&lt;16)
+	0 0   1  (a &lt;&lt; 10) 0       4         (a + 5) 0       0   0   0   0   0
+end loop
+
+# Read the data through PC
+loop(a, 1&lt;&lt;16)
+	0 0   1  4         0       (a &lt;&lt; 10) 0       (a + 5) 0   0   0   0   0
+end loop</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="420" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Out of range</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>	C str ld Addr D_in PC  D_out Instr SAM LAM SAF LAF IAF
+
+declare SAM = (Except &gt;&gt; 6) &amp; 1;
+declare LAM = (Except &gt;&gt; 4) &amp; 1;
+declare SAF = (Except &gt;&gt; 7) &amp; 1;
+declare LAF = (Except &gt;&gt; 5) &amp; 1;
+declare IAF = (Except &gt;&gt; 1) &amp; 1;
+
+# Write random addresses
+loop(i, 10000)
+	# Generate random addresss &gt;= (1 &lt;&lt; 26)
+	let a = (((random(7) + 1) &lt;&lt; 26) + (random(1 &lt;&lt; 24) &lt;&lt; 2));
+
+	0 1   0  (a)  0    0   z     0     0   0   1   0   0
+	0 0   1  (a)  0    0   0     0     0   0   0   1   0
+	0 0   0  0    0    (a) z     0     0   0   0   0   1
+end loop</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="420" y="500"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Preload program</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>	C str ld Addr D_in PC   D_out      Instr SAM LAM SAF LAF IAF
+
+declare SAM = (Except &gt;&gt; 6) &amp; 1;
+declare LAM = (Except &gt;&gt; 4) &amp; 1;
+declare SAF = (Except &gt;&gt; 7) &amp; 1;
+declare LAF = (Except &gt;&gt; 5) &amp; 1;
+declare IAF = (Except &gt;&gt; 1) &amp; 1;
+
+program(0x5A5A5A5A, 0xA5A5A5A5, 0x0, 0x1, 0xFFFFFFFF)
+	0 0   1  0    0    40   0x5A5A5A5A 0     0   0   0   0   0
+	0 0   1  4    0    40   0xA5A5A5A5 0     0   0   0   0   0
+	0 0   1  8    0    40   0x0        0     0   0   0   0   0
+	0 0   1  12   0    40   0x1        0     0   0   0   0   0
+	0 0   1  16   0    40   0xFFFFFFFF 0     0   0   0   0   0
+	0 0   1  20   0    40   0          0     0   0   0   0   0</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="420" y="300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes/>
+      <pos x="740" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>mirror</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>splitterSpreading</string>
+          <int>2</int>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>32</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>0-0,1-1,26-31,2-25</string>
+        </entry>
+      </elementAttributes>
+      <pos x="700" y="480"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes/>
+      <pos x="740" y="440"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>textOrientation</string>
+          <de.neemann.digital.draw.graphics.Orientation>LEFTCENTER</de.neemann.digital.draw.graphics.Orientation>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>Load Address Misaligned</string>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="860" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>textOrientation</string>
+          <de.neemann.digital.draw.graphics.Orientation>LEFTCENTER</de.neemann.digital.draw.graphics.Orientation>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>Instruction Address Misaligned</string>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="900" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>textOrientation</string>
+          <de.neemann.digital.draw.graphics.Orientation>LEFTCENTER</de.neemann.digital.draw.graphics.Orientation>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>Store Address Misaligned</string>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="820" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>ld</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1140" y="620"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="780" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation reference="../../../../visualElement[21]/elementAttributes/entry/rotation"/>
+        </entry>
+      </elementAttributes>
+      <pos x="840" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Misaligned</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>C str ld Addr D_in PC D_out Instr SAM LAM SAF LAF IAF
+
+declare SAM = (Except &gt;&gt; 6) &amp; 1;
+declare LAM = (Except &gt;&gt; 4) &amp; 1;
+declare SAF = (Except &gt;&gt; 7) &amp; 1;
+declare LAF = (Except &gt;&gt; 5) &amp; 1;
+declare IAF = (Except &gt;&gt; 1) &amp; 1;
+
+0 0   0  0    0    0  z     0     0   0   0   0   0
+# Test LAM (load address misaligned)
+0 0   1  0    0    0  0     0     0   0   0   0   0
+0 0   1  1    0    0  0     0     0   1   0   0   0
+0 0   1  2    0    0  0     0     0   1   0   0   0
+0 0   1  3    0    0  0     0     0   1   0   0   0
+0 0   1  4    0    0  0     0     0   0   0   0   0
+0 0   1  5    0    0  0     0     0   1   0   0   0
+0 0   1  6    0    0  0     0     0   1   0   0   0
+0 0   1  7    0    0  0     0     0   1   0   0   0
+0 0   1  8    0    0  0     0     0   0   0   0   0
+0 0   1  9    0    0  0     0     0   1   0   0   0
+0 0   1  10   0    0  0     0     0   1   0   0   0
+0 0   1  11   0    0  0     0     0   1   0   0   0
+
+# Test SAM (store address misaligned)
+0 1  0   0    0    0  z     0     0   0   0   0   0
+0 1  0   1    0    0  z     0     1   0   0   0   0
+0 1  0   2    0    0  z     0     1   0   0   0   0
+0 1  0   3    0    0  z     0     1   0   0   0   0
+0 1  0   4    0    0  z     0     0   0   0   0   0
+0 1  0   5    0    0  z     0     1   0   0   0   0
+0 1  0   6    0    0  z     0     1   0   0   0   0
+0 1  0   7    0    0  z     0     1   0   0   0   0
+0 1  0   8    0    0  z     0     0   0   0   0   0
+0 1  0   9    0    0  z     0     1   0   0   0   0
+0 1  0   10   0    0  z     0     1   0   0   0   0
+0 1  0   11   0    0  z     0     1   0   0   0   0</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="420" y="400"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="920" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation reference="../../../../visualElement[24]/elementAttributes/entry/rotation"/>
+        </entry>
+      </elementAttributes>
+      <pos x="980" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="1040" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="980" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>textOrientation</string>
+          <de.neemann.digital.draw.graphics.Orientation>LEFTCENTER</de.neemann.digital.draw.graphics.Orientation>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>Load Access Fault</string>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="980" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>textOrientation</string>
+          <de.neemann.digital.draw.graphics.Orientation>LEFTCENTER</de.neemann.digital.draw.graphics.Orientation>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>Instruction Access Fault</string>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="1020" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>textOrientation</string>
+          <de.neemann.digital.draw.graphics.Orientation>LEFTCENTER</de.neemann.digital.draw.graphics.Orientation>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>Store/AMO Access Fault</string>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="940" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>str</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1100" y="600"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>ld</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1140" y="600"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>str</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1120" y="260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="3"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>str</string>
+        </entry>
+      </elementAttributes>
+      <pos x="780" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation reference="../../../../visualElement[34]/elementAttributes/entry/rotation"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>str</string>
+        </entry>
+      </elementAttributes>
+      <pos x="920" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="3"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>ld</string>
+        </entry>
+      </elementAttributes>
+      <pos x="880" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation reference="../../../../visualElement[36]/elementAttributes/entry/rotation"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>ld</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1020" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>ld</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1120" y="300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="900" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation reference="../../../../visualElement[39]/elementAttributes/entry/rotation"/>
+        </entry>
+      </elementAttributes>
+      <pos x="940" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation reference="../../../../visualElement[39]/elementAttributes/entry/rotation"/>
+        </entry>
+      </elementAttributes>
+      <pos x="980" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation reference="../../../../visualElement[39]/elementAttributes/entry/rotation"/>
+        </entry>
+      </elementAttributes>
+      <pos x="1020" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation reference="../../../../visualElement[39]/elementAttributes/entry/rotation"/>
+        </entry>
+      </elementAttributes>
+      <pos x="860" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation reference="../../../../visualElement[39]/elementAttributes/entry/rotation"/>
+        </entry>
+      </elementAttributes>
+      <pos x="820" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes/>
+      <pos x="1400" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Probe</elementName>
+      <elementAttributes>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>bin</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="1540" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes/>
+      <pos x="1400" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes/>
+      <pos x="1400" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes/>
+      <pos x="1400" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Button</elementName>
+      <elementAttributes/>
+      <pos x="1400" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>0-0,2-3,8-15,1-1,4-4,5-5,6-6,7-7</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>16</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1480" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>NotConnected</elementName>
+      <elementAttributes/>
+      <pos x="1460" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>NotConnected</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>2</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1460" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>NotConnected</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>8</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1460" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>0-0,2-3,8-15,1-1,4-4,5-5,6-6,7-7</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>16</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1080" y="-120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>NotConnected</elementName>
+      <elementAttributes/>
+      <pos x="1060" y="-120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>NotConnected</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>2</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1060" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>NotConnected</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>8</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1060" y="-80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>Except</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>16</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1120" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>Note: Instruction address
+misaligned is not output
+here because it is raised
+on the jump instead of on
+the load.</string>
+        </entry>
+      </elementAttributes>
+      <pos x="500" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>equals_zero.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>Bits := 6;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="820" y="400"/>
+    </visualElement>
+    <visualElement>
+      <elementName>equals_zero.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>Bits := 6;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="820" y="280"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="720" y="320"/>
+      <p2 x="1140" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="1460" y="0"/>
+      <p2 x="1480" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="1500" y="0"/>
+      <p2 x="1540" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="820" y="0"/>
+      <p2 x="1080" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="260"/>
+      <p2 x="1140" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="1200" y="260"/>
+      <p2 x="1240" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="200"/>
+      <p2 x="740" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="680" y="200"/>
+      <p2 x="700" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="460"/>
+      <p2 x="900" y="460"/>
+    </wire>
+    <wire>
+      <p1 x="1440" y="140"/>
+      <p2 x="1480" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1400" y="140"/>
+      <p2 x="1420" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="820" y="140"/>
+      <p2 x="840" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="960" y="140"/>
+      <p2 x="980" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="-80"/>
+      <p2 x="1080" y="-80"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="400"/>
+      <p2 x="820" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="400"/>
+      <p2 x="1040" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="1420" y="80"/>
+      <p2 x="1480" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="-20"/>
+      <p2 x="1080" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="1400" y="20"/>
+      <p2 x="1440" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="1460" y="20"/>
+      <p2 x="1480" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="20"/>
+      <p2 x="1080" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="680" y="340"/>
+      <p2 x="1140" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="280"/>
+      <p2 x="1140" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="280"/>
+      <p2 x="820" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="280"/>
+      <p2 x="980" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="1200" y="280"/>
+      <p2 x="1220" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="220"/>
+      <p2 x="820" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="680" y="480"/>
+      <p2 x="700" y="480"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="480"/>
+      <p2 x="740" y="480"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="-100"/>
+      <p2 x="1080" y="-100"/>
+    </wire>
+    <wire>
+      <p1 x="1400" y="100"/>
+      <p2 x="1480" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="860" y="-40"/>
+      <p2 x="1080" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="1460" y="40"/>
+      <p2 x="1480" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="40"/>
+      <p2 x="820" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="40"/>
+      <p2 x="1000" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="40"/>
+      <p2 x="1040" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="360"/>
+      <p2 x="1140" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="300"/>
+      <p2 x="1140" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="300"/>
+      <p2 x="1240" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="240"/>
+      <p2 x="740" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="1400" y="180"/>
+      <p2 x="1440" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="-120"/>
+      <p2 x="1080" y="-120"/>
+    </wire>
+    <wire>
+      <p1 x="1100" y="-120"/>
+      <p2 x="1120" y="-120"/>
+    </wire>
+    <wire>
+      <p1 x="1420" y="120"/>
+      <p2 x="1480" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="440"/>
+      <p2 x="740" y="440"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="-60"/>
+      <p2 x="1080" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="1400" y="60"/>
+      <p2 x="1420" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="1440" y="60"/>
+      <p2 x="1480" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="40"/>
+      <p2 x="800" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="960" y="120"/>
+      <p2 x="960" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1440" y="20"/>
+      <p2 x="1440" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="1440" y="140"/>
+      <p2 x="1440" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="-140"/>
+      <p2 x="1120" y="-120"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="280"/>
+      <p2 x="1060" y="620"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="280"/>
+      <p2 x="1220" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="-100"/>
+      <p2 x="900" y="460"/>
+    </wire>
+    <wire>
+      <p1 x="840" y="120"/>
+      <p2 x="840" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1000" y="40"/>
+      <p2 x="1000" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="1420" y="60"/>
+      <p2 x="1420" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="1420" y="120"/>
+      <p2 x="1420" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1100" y="600"/>
+      <p2 x="1100" y="620"/>
+    </wire>
+    <wire>
+      <p1 x="780" y="120"/>
+      <p2 x="780" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="-100"/>
+      <p2 x="940" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="20"/>
+      <p2 x="940" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="40"/>
+      <p2 x="1040" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="200"/>
+      <p2 x="1040" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="120"/>
+      <p2 x="880" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="820" y="120"/>
+      <p2 x="820" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="820" y="-100"/>
+      <p2 x="820" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="820" y="0"/>
+      <p2 x="820" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="820" y="140"/>
+      <p2 x="820" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="120"/>
+      <p2 x="980" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="200"/>
+      <p2 x="980" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="-100"/>
+      <p2 x="980" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="-20"/>
+      <p2 x="980" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="140"/>
+      <p2 x="980" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="600"/>
+      <p2 x="1140" y="620"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="120"/>
+      <p2 x="920" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="120"/>
+      <p2 x="1020" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="-100"/>
+      <p2 x="1020" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="-60"/>
+      <p2 x="1020" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="860" y="-100"/>
+      <p2 x="860" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="860" y="-40"/>
+      <p2 x="860" y="60"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

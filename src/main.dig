@@ -451,20 +451,6 @@
       <pos x="1280" y="580"/>
     </visualElement>
     <visualElement>
-      <elementName>Const</elementName>
-      <elementAttributes>
-        <entry>
-          <string>rotation</string>
-          <rotation reference="../../../../visualElement[31]/elementAttributes/entry/rotation"/>
-        </entry>
-        <entry>
-          <string>Value</string>
-          <long>0</long>
-        </entry>
-      </elementAttributes>
-      <pos x="1300" y="580"/>
-    </visualElement>
-    <visualElement>
       <elementName>Add</elementName>
       <elementAttributes>
         <entry>
@@ -484,11 +470,58 @@
       </elementAttributes>
       <pos x="1500" y="520"/>
     </visualElement>
+    <visualElement>
+      <elementName>control.dig</elementName>
+      <elementAttributes/>
+      <pos x="1240" y="240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>str_REG</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1400" y="300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="3"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>str_REG</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1300" y="580"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation reference="../../../../visualElement[3]/elementAttributes/entry/rotation"/>
+        </entry>
+        <entry>
+          <string>NetName</string>
+          <string>Exceptions</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1300" y="220"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
       <p1 x="1580" y="0"/>
       <p2 x="1600" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="260"/>
+      <p2 x="1240" y="260"/>
     </wire>
     <wire>
       <p1 x="1580" y="200"/>
@@ -511,6 +544,10 @@
       <p2 x="1600" y="-140"/>
     </wire>
     <wire>
+      <p1 x="1120" y="460"/>
+      <p2 x="1180" y="460"/>
+    </wire>
+    <wire>
       <p1 x="1580" y="-80"/>
       <p2 x="1600" y="-80"/>
     </wire>
@@ -523,6 +560,10 @@
       <p2 x="820" y="400"/>
     </wire>
     <wire>
+      <p1 x="1240" y="720"/>
+      <p2 x="1600" y="720"/>
+    </wire>
+    <wire>
       <p1 x="1580" y="-20"/>
       <p2 x="1600" y="-20"/>
     </wire>
@@ -531,8 +572,8 @@
       <p2 x="1600" y="20"/>
     </wire>
     <wire>
-      <p1 x="1240" y="660"/>
-      <p2 x="1600" y="660"/>
+      <p1 x="1180" y="340"/>
+      <p2 x="1240" y="340"/>
     </wire>
     <wire>
       <p1 x="1600" y="220"/>
@@ -583,12 +624,20 @@
       <p2 x="1000" y="420"/>
     </wire>
     <wire>
+      <p1 x="1120" y="420"/>
+      <p2 x="1140" y="420"/>
+    </wire>
+    <wire>
       <p1 x="1000" y="420"/>
       <p2 x="1020" y="420"/>
     </wire>
     <wire>
       <p1 x="1580" y="-40"/>
       <p2 x="1600" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="1000" y="680"/>
+      <p2 x="1340" y="680"/>
     </wire>
     <wire>
       <p1 x="800" y="360"/>
@@ -599,8 +648,12 @@
       <p2 x="1600" y="40"/>
     </wire>
     <wire>
-      <p1 x="1000" y="620"/>
-      <p2 x="1340" y="620"/>
+      <p1 x="1160" y="300"/>
+      <p2 x="1240" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="1380" y="300"/>
+      <p2 x="1400" y="300"/>
     </wire>
     <wire>
       <p1 x="1580" y="240"/>
@@ -639,6 +692,10 @@
       <p2 x="820" y="440"/>
     </wire>
     <wire>
+      <p1 x="1120" y="440"/>
+      <p2 x="1160" y="440"/>
+    </wire>
+    <wire>
       <p1 x="1580" y="-60"/>
       <p2 x="1600" y="-60"/>
     </wire>
@@ -660,7 +717,7 @@
     </wire>
     <wire>
       <p1 x="1600" y="480"/>
-      <p2 x="1600" y="660"/>
+      <p2 x="1600" y="720"/>
     </wire>
     <wire>
       <p1 x="900" y="300"/>
@@ -671,37 +728,70 @@
       <p2 x="900" y="500"/>
     </wire>
     <wire>
-      <p1 x="1300" y="560"/>
-      <p2 x="1300" y="580"/>
-    </wire>
-    <wire>
       <p1 x="1000" y="420"/>
-      <p2 x="1000" y="620"/>
+      <p2 x="1000" y="680"/>
     </wire>
     <wire>
       <p1 x="1480" y="500"/>
       <p2 x="1480" y="540"/>
     </wire>
     <wire>
-      <p1 x="1240" y="540"/>
-      <p2 x="1240" y="660"/>
-    </wire>
-    <wire>
-      <p1 x="1340" y="540"/>
-      <p2 x="1340" y="620"/>
+      <p1 x="1160" y="300"/>
+      <p2 x="1160" y="440"/>
     </wire>
     <wire>
       <p1 x="620" y="480"/>
       <p2 x="620" y="500"/>
     </wire>
     <wire>
+      <p1 x="940" y="480"/>
+      <p2 x="940" y="500"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="260"/>
+      <p2 x="1140" y="420"/>
+    </wire>
+    <wire>
+      <p1 x="1300" y="560"/>
+      <p2 x="1300" y="580"/>
+    </wire>
+    <wire>
+      <p1 x="1300" y="220"/>
+      <p2 x="1300" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="1240" y="540"/>
+      <p2 x="1240" y="720"/>
+    </wire>
+    <wire>
+      <p1 x="1340" y="540"/>
+      <p2 x="1340" y="680"/>
+    </wire>
+    <wire>
       <p1 x="860" y="480"/>
       <p2 x="860" y="500"/>
     </wire>
     <wire>
-      <p1 x="940" y="480"/>
-      <p2 x="940" y="500"/>
+      <p1 x="1180" y="340"/>
+      <p2 x="1180" y="460"/>
     </wire>
   </wires>
-  <measurementOrdering/>
+  <measurementOrdering>
+    <string>P</string>
+    <string>S</string>
+    <string>Instruction_Address_Misaligned</string>
+    <string>Instruction_Access_Fault</string>
+    <string>Breakpoint</string>
+    <string>Illegal_Instruction</string>
+    <string>Load_Access_Fault</string>
+    <string>Load_Address_Misaligned</string>
+    <string>Store/AMO_Access_Fault</string>
+    <string>Store/AMO_Address_Misaligned</string>
+    <string>Environment_Call_From_S-mode</string>
+    <string>Environment_Call_From_U-mode</string>
+    <string>Environment_Call_From_M-mode</string>
+    <string>Load_Page_Fault</string>
+    <string>Instruction_Page_Fault</string>
+    <string>Store/AMO_Page_Fault</string>
+  </measurementOrdering>
 </circuit>

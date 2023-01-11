@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <circuit>
   <version>1</version>
-  <attributes/>
+  <attributes>
+    <entry>
+      <string>preloadProgram</string>
+      <boolean>true</boolean>
+    </entry>
+  </attributes>
   <visualElements>
     <visualElement>
       <elementName>Memory.dig</elementName>
@@ -344,6 +349,10 @@
     <visualElement>
       <elementName>Clock</elementName>
       <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>C</string>
+        </entry>
         <entry>
           <string>Frequency</string>
           <int>50</int>

@@ -141,19 +141,19 @@
         <entry>
           <string>Testdata</string>
           <testData>
-            <dataString>	opcode    funct3 funct7    ld_REG II
+            <dataString>	opcode    funct3 funct7    str_REG II
 # Get illegal instruction bit
 declare II = (Except &gt;&gt; 2) &amp; 1;
 
 # addi
 loop(f7, (1 &lt;&lt; 7))
-	0b0010011 0b000  (f7)      1      0
+	0b0010011 0b000  (f7)      1       0
 end loop
 
 # Some illegal instructions
-	0b0000000 0b000  0b0000000 0      1
-	0b1111111 0b111  0b1111111 0      1
-	0b0111010 0b001  0b0011001 0      1
+	0b0000000 0b000  0b0000000 0       1
+	0b1111111 0b111  0b1111111 0       1
+	0b0111010 0b001  0b0011001 0       1
 
 </dataString>
           </testData>

@@ -1,0 +1,3 @@
+[submodule "test/tests"]
+	path = test/tests
+	url = git@github.com:quintentruyens/Selsiro-cpu-tests.git

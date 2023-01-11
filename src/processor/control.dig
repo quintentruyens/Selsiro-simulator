@@ -75,7 +75,7 @@
         </entry>
         <entry>
           <string>lastDataFile</string>
-          <file>C:\Users\quint\Documents\ByteRV\simulator\rom\control.bin</file>
+          <file>/home/quinten/Documents/projects/selsiro/simulator/rom/control.bin</file>
         </entry>
         <entry>
           <string>autoReload</string>

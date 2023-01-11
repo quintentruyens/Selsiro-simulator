@@ -1,1 +1,4 @@
 *.bin
+test/Digital/*
+test/__pycache__/*
+.vscode/*

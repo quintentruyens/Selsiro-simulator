@@ -21,4 +21,4 @@ jobs:
         python -m pip install --upgrade pip
     - name: Run unit tests
       run: |
-        python ./test/cpu_test.py
+        python ./test/unit_test.py

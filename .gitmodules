@@ -1,3 +1,4 @@
-[submodule "test/tests"]
+[submodule "test-framework"]
 	path = test/tests
-	url = git@github.com:quintentruyens/Selsiro-cpu-tests.git
+	url = https://github.com/quintentruyens/Selsiro-cpu-tests.git
+	branch = main
